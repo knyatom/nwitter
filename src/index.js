@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
+// import './index.css';
+import App from 'components/App';
 //import reportWebVitals from './reportWebVitals';
-import firebase from "./firebase";
-
-console.log(firebase);
+// import firebase from "./fbase";
 
 ReactDOM.render(
   <React.StrictMode>
