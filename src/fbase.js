@@ -14,6 +14,6 @@ const  firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
-  export const autoService=firebase.auth();
+  export const authService=firebase.auth();
 
   
