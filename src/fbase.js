@@ -12,7 +12,7 @@ const  firebaseConfig = {
 
   // export default firebase.initializeApp(firebaseConfig);
 
-  firebase.initializeApp(firebaseConfig);
+ export default firebase.initializeApp(firebaseConfig);
 
   export const authService=firebase.auth();
 
