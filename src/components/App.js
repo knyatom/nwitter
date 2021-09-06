@@ -1,22 +1,38 @@
 // import logo from './logo.svg';
 // import './App.css';
- import { useState } from "react";
- import AppRouter from "components/Router";
- import {authService} from "fbase";
+import { useState, useEffect } from "react";
+import AppRouter from "components/Router";
+import { authService } from "fbase";
 
 //const { default: AppRouter } = require("./Router");
 
 
 function App() {
-   const [isLoggedIn, setIsLoggedIn]=useState(authService.currentUser);
+  const [init, setInit] = useState(false);
+  //const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   console.log(authService.currentUser);
 
+  // setInterval(() => {
+  //   console.log(authService.currentUser);
+  // }, 2000);
+
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+
   return (
-    <>     
-      <AppRouter isLoggedIn={isLoggedIn} />
+    <>
+      {init? <AppRouter isLoggedIn={isLoggedIn} />:"initializing"}
       <footer> {new Date().getFullYear()}  NWitter</footer>
-      
     </>
   );
 }
