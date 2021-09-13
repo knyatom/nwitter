@@ -9,7 +9,7 @@ function Auth() {
   const [error, setError] = useState("");
 
   const onChange = (event) => {
-    console.log(event.target.name);
+  //  console.log(event.target.name);
     const {
       target: { name, value }
     } = event;
@@ -29,7 +29,7 @@ function Auth() {
       } else {
         data = await authService.signInWithEmailAndPassword(email, password);
       }
-      console.log(data);
+     // console.log(data);
     } catch (error) {
       //console.log(error);
       setError(error.message);
@@ -48,7 +48,7 @@ function Auth() {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     const data=await authService.signInWithPopup(provider);
-    console.log(data);
+    //console.log(data);
 
   };
 
