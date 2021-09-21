@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { authService, firebaseInstance } from "fbase";
 import { useState } from "react";
 
